@@ -7,6 +7,16 @@ local plugins = {
 		end,
 	},
 	{
+		"f-person/git-blame.nvim",
+	  event = "BufRead",
+	  config = function()
+	    vim.cmd "highlight default link gitblame SpecialComment"
+	    vim.g.gitblame_enabled = 1
+	    vim.g.gitblame_virtual_text_column = 100
+	    vim.g.gitblame_message_template = "<author> • <date> • <sha> • <summary>"
+	  end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require "plugins.configs.lspconfig"
@@ -20,6 +30,25 @@ local plugins = {
 				"clangd",
 				"clang-format",
 			}
+		}
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = {
+			git = {
+				enable = true,
+			},
+			renderer = {
+				highlight_git = true,
+				icons = {
+					show = {
+						git = true,
+					},
+				},
+			},
+			view = {
+				adaptive_size = true
+			},
 		}
 	},
 	{
