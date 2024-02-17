@@ -7,6 +7,36 @@ local plugins = {
 		end,
 	},
 	{
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    event = "VeryLazy",
+    opts = {},
+	},
+	{
+  -- Rainbow brackets plugin
+  	"lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    config = function()
+      require("indent_blankline").setup {
+        use_treesitter = true,
+        char = '┆',
+        space_char_blankline = " ",
+        show_current_context_start = true,
+        show_current_context = true,
+        filetype_exclude = { "help", "dashboard", "dashpreview", "NvimTree", "vista", "sagahover" },
+        buftype_exclude = { "terminal", "nofile" },
+		    char_highlight_list = {
+		        "IndentBlanklineIndent1",
+		        "IndentBlanklineIndent2",
+		        "IndentBlanklineIndent3",
+		        "IndentBlanklineIndent4",
+		        "IndentBlanklineIndent5",
+		        "IndentBlanklineIndent6",
+		    },
+      }
+    end,
+  },
+	{
 		"f-person/git-blame.nvim",
 	  event = "BufRead",
 	  config = function()
@@ -14,6 +44,10 @@ local plugins = {
 	    vim.g.gitblame_enabled = 1
 	    vim.g.gitblame_virtual_text_column = 100
 	    vim.g.gitblame_message_template = "<author> • <date> • <sha> • <summary>"
+	    vim.g.gitblame_highlight_group = "StatusLine"
+	    vim.g.gitblame_set_extmark_options = {
+			  hl_mode = "combine",
+			}
 	  end,
 	},
 	{
