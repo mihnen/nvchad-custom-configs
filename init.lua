@@ -40,3 +40,5 @@ vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
 vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
 vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+
+-- vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/snippets"
