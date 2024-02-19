@@ -13,5 +13,14 @@ local plugins = {
 			require "custom.configs.lspconfig"
 		end,
 	},
+	-- disable luasnip as we are using ultisnip instead
+	{
+		"L3MON4D3/LuaSnip",
+		enabled = false,
+	},
+	{
+		"rafamadriz/friendly-snippets",
+		enabled = false,
+	},
 }
 return plugins

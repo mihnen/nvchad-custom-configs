@@ -1,0 +1,9 @@
+# header include guard
+snippet onceme
+	#ifndef ${1:`toupper(vim_snippets#Filename('$1_H', 'UNTITLED_H'))`}
+
+	#define $1
+
+	${0}
+
+	#endif /* end of include guard: $1 */
